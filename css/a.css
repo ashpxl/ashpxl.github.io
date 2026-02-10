@@ -1,0 +1,778 @@
+@import url(https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap);
+
+#particles-js,
+#sideNav {
+  position: fixed;
+  height: 100%;
+  background-size: width;
+  background-position: 50% 50%;
+  top: 0;
+  left: 0;
+}
+
+.navigationItem,
+body {
+  font-family: Geist, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+body {
+  background-color: #000;
+  font-optical-sizing: auto;
+}
+
+#sideNav {
+  width: 256px;
+  z-index: 999;
+  background-color: #0b0b0b;
+  color: #c7c7c7;
+  overflow: hidden;
+}
+#sideNav:hover{
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+#app {
+  position: fixed;
+  width: calc(100% - 256px);
+  height: 100%;
+  background-size: width;
+  background-position: 50% 50%;
+  top: 0;
+  left: 256px;
+  z-index: 999;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  color: #fff;
+}
+
+.gameLabel {
+  font-size: 40px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+#particles-js {
+  width: 100%;
+  z-index: -999;
+}
+
+.navigationItem {
+  width: 220px;
+  height: 40px;
+  border-radius: 10px;
+  transition: 0.1s;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: 4px;
+  /*border: 1px solid #222222;*/
+  margin: 6px;
+}
+
+.navigationItem .navItemSrc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c7c7c7;
+  position: relative;
+  left: -34px;
+  transition: 0.4s ease;
+}
+
+.navigationItem.active,
+.navigationItem:hover {
+  transition-delay: 0.1s;
+  background: #222222;
+  margin-left: 8px;
+}
+
+.navigationItem.active .navItemSrc,
+.navigationItem:hover .navItemSrc {
+  left: 0;
+}
+
+.navItemSrc svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.navItemSrc h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 300;
+}
+
+.game {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  margin: 0.781vw;
+  border-radius: 0.586vw;
+  display: inline-block;
+  transition: 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.game:hover {
+  margin-top: 0px;
+  margin-bottom: 1.563vw;
+  box-shadow: 0px 2px 4px 6px #222;
+}
+
+.game img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: 0.3s ease;
+  background-color: #222;
+  pointer-events: none;
+}
+
+.game:hover img {
+  filter: brightness(0.6) blur(2px);
+
+}
+
+.game h1 {
+  bottom: 0.586vw;
+  opacity: 0;
+  transition: 0.3s ease;
+  position: absolute;
+  color: #ffffff;
+  text-align: center;
+  width: 80%;
+  margin: 10%;
+}
+
+.game:hover h1 {
+  opacity: 1;
+}
+
+.gameh1 {
+  font-size: 20px;
+  font-family: Geist, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.home {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.logo {
+  position: relative;
+  left: 18px;
+}
+
+#page-loader {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #FFF;
+  animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: #FF3D00;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+}
+.particleButton {
+  z-index: 1;
+  color: var(--buttonFontColor);
+  padding: 0em;
+  font-size: var(--buttonFontSize);
+  width: 90px;
+  height: 90px;
+
+
+  background-color: unset;
+  background: var(--buttonColor0);
+  pointer-events: all;
+  cursor: pointer;
+  border-radius: 50%;
+  border-width: 0px;
+  box-sizing: border-box;
+  transition: box-shadow ease-out 0.3s, transform 0.1s ease-in;
+  box-shadow: 0px 0px 0px 5px var(--buttonColor2),
+    0px 0px 0px 9px var(--buttonColor1),
+    inset 0px 0px 0px 0px var(--buttonColor2);
+    transition-duration: 0.2s;
+}
+.particleButton:hover:not(:active) {
+  transition: 0.1s ease-in-out all;
+  box-shadow: 0px 0px 0px 8px var(--buttonColor2),
+    0px 0px 0px 14px var(--buttonColor1),
+    inset 0px 0px 0px 0px var(--buttonColor2);
+    scale: 1.1;
+}
+
+.Container1,
+.Container2,
+.Container3,
+.Container4,
+.Container5,
+.Container6,
+.Container7 {
+  rotate: 10deg;
+  top: -60px;
+}
+.column,
+.game2,
+.gamesRotate {
+  overflow: hidden;
+}
+.gamesRotate {
+  pointer-events: none;
+  width: 350px;
+  position: absolute;
+  z-index: -300;
+}
+.Container1 {
+  left: -270px;
+}
+.Container2 {
+  left: 100px;
+}
+.Container3 {
+  left: 470px;
+}
+.Container4 {
+  left: 840px;
+}
+.Container5 {
+  left: 1210px;
+}
+.Container6 {
+  left: 1580px;
+}
+.Container7 {
+  left: 1950px;
+}
+.column {
+  width: 13vw;
+  height: calc(100% - 4.444vh);
+  position: relative;
+}
+.game2,
+.rotatetrack .game {
+  width: 320px;
+  height: 320px;
+}
+.rotatetrack {
+  animation: 18s linear infinite up;
+  flex-direction: column;
+  display: flex;
+}
+.rotatetrack.down {
+  animation: 18s linear infinite down;
+}
+.rotatetrack a {
+  display: block;
+  padding: 0.48vw;
+  box-sizing: border-box;
+}
+.rotatetrack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1vw;
+  transition: transform 0.25s, outline 0.25s;
+  will-change: transform;
+  outline: transparent solid 0.18vw;
+}
+.game2,
+.game2 img {
+  position: relative;
+  transition: 0.3s;
+}
+.rotatetrack a:hover img {
+  transform: scale(1.05);
+  outline: #f0d210 solid 0.18vw;
+}
+@keyframes up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.rotatetrack .game img {
+  border-radius: 1em;
+}
+.game2 {
+  margin: 19.9936px;
+  border-radius: 0.586vw;
+  display: inline-block;
+  text-align: center;
+}
+.game2 img {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  filter: brightness(0.6) blur(2px);
+}
+.gamepagecontainer {
+  display: grid;
+  grid-template-columns: minmax(800px, 1fr) 300px;
+  gap: 25px;
+  width: 100%;
+  align-items: start;
+}
+
+/* === GAME FRAME === */
+.gamepage {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+.framediv {
+  width: 100%;
+  max-width: 1156px;
+  background: #0b0b0b;
+  border: 2px solid #222;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  padding: 12px;
+  position: relative;
+}
+
+/* === IFRAME === */
+.framediv iframe {
+  width: 100%;
+  height: 550px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* === GAME INFO BAR === */
+.gameinfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  margin-top: 8px;
+}
+
+.small {
+  font-size: 26px;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* === FULLSCREEN ICON === */
+.gameinfo svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.gameinfo svg:hover {
+  transform: scale(1.2);
+}
+
+.sidediv {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 600px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.sidediv ins,
+.sidediv iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.particles {
+  z-index: -1;
+  background: none !important;
+  pointer-events: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+.particles::after {
+  position: absolute;
+  content: "";
+
+  min-width: 300px;
+  min-height: 300px;
+  pointer-events: none;
+  transition: background-size ease-in-out 0.5s,
+    background-position ease-in-out 0.5s;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.particleButton:active {
+  transition: box-shadow ease-out 0.1s, background-size ease-in-out 0.1s,
+    background-position ease-in-out 0.1s;
+  box-shadow: 0px 0px 0px 0px var(--buttonColor2),
+    0px 0px 0px 5px var(--buttonColor1),
+    inset 0px 0px 0px 5px var(--buttonColor2);
+scale: 1.05;
+}
+.particleButton:active ~ .particles::after {
+  animation: none;
+  background-size: 0;
+}
+
+
+.theButton.animated::after { 
+  animation: theButtonAnimation linear 2.35s forwards;
+  background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%),
+      radial-gradient(circle, rgba(255, 255, 255, 1) 45%, transparent 45%);
+} 
+@keyframes theButtonAnimation {
+  0% {
+
+      background-size: 26px 26px,21px 21px,17px 17px,23px 23px,25px 25px,23px 23px,21px 21px,20px 20px,27px 27px,27px 27px,15px 15px,19px 19px,22px 22px,21px 21px,16px 16px,17px 17px,22px 22px,15px 15px,27px 27px,20px 20px,19px 19px,21px 21px;
+      background-position: 490px 488px,519px 508px,511px 514px,504px 523px,492px 524px,485px 506px,473px 523px,485px 494px,479px 490px,452px 496px,466px 492px,471px 484px,476px 481px,485px 485px,481px 469px,485px 450px,492px 459px,503px 468px,505px 463px,496px 485px,529px 478px,516px 489px;
+  }
+  2.5% {
+
+      background-size: 21px 21px,16px 16px,13px 13px,19px 19px,20px 20px,20px 20px,17px 17px,17px 17px,23px 23px,23px 23px,12px 12px,15px 15px,19px 19px,18px 18px,13px 13px,14px 14px,18px 18px,13px 13px,22px 22px,16px 16px,15px 15px,16px 16px;
+      background-position: 579px 546px,599px 560px,571px 587px,522px 585px,520px 607px,470px 621px,454px 603px,444px 571px,442px 555px,376px 519px,382px 518px,408px 471px,406px 401px,433px 387px,459px 395px,471px 351px,513px 363px,521px 359px,557px 384px,567px 427px,579px 469px,604px 483px;
+  }
+  5% {
+
+      background-size: 17px 17px,12px 12px,11px 11px,15px 15px,16px 16px,17px 17px,13px 13px,14px 14px,20px 20px,20px 20px,9px 9px,13px 13px,16px 16px,15px 15px,10px 10px,11px 11px,14px 14px,11px 11px,18px 18px,14px 14px,11px 11px,13px 13px;
+      background-position: 627px 583px,641px 590px,602px 630px,533px 626px,535px 655px,463px 684px,445px 650px,422px 622px,422px 604px,336px 534px,337px 534px,371px 464px,370px 360px,407px 335px,447px 353px,464px 302px,524px 313px,531px 305px,585px 344px,606px 394px,610px 465px,652px 482px;
+  }
+  7.5% {
+
+      background-size: 14px 14px,10px 10px,9px 9px,13px 13px,13px 13px,14px 14px,10px 10px,12px 12px,17px 17px,17px 17px,7px 7px,11px 11px,13px 13px,13px 13px,8px 8px,9px 9px,11px 11px,9px 9px,14px 14px,11px 11px,9px 9px,10px 10px;
+      background-position: 653px 604px,664px 608px,620px 654px,541px 652px,544px 683px,460px 718px,440px 677px,410px 653px,410px 634px,314px 544px,313px 544px,349px 461px,352px 341px,394px 310px,441px 331px,460px 278px,530px 290px,536px 279px,601px 325px,628px 378px,631px 463px,678px 484px;
+  }
+  10% {
+
+      background-size: 11px 11px,7px 7px,7px 7px,10px 10px,10px 10px,12px 12px,8px 8px,10px 10px,15px 15px,15px 15px,5px 5px,9px 9px,11px 11px,11px 11px,7px 7px,8px 8px,9px 9px,7px 7px,11px 11px,9px 9px,7px 7px,8px 8px;
+      background-position: 667px 618px,677px 620px,629px 669px,545px 669px,549px 700px,459px 738px,437px 694px,404px 671px,404px 653px,302px 552px,300px 552px,335px 461px,343px 333px,387px 299px,437px 320px,459px 268px,534px 279px,540px 267px,610px 317px,640px 371px,646px 464px,694px 487px;
+  }
+  12.5% {
+
+      background-size: 9px 9px,6px 6px,6px 6px,8px 8px,8px 8px,10px 10px,6px 6px,8px 8px,12px 12px,12px 12px,4px 4px,7px 7px,9px 9px,9px 9px,5px 5px,6px 6px,7px 7px,6px 6px,9px 9px,8px 8px,5px 5px,6px 6px;
+      background-position: 676px 628px,685px 628px,635px 680px,549px 682px,553px 713px,458px 751px,436px 707px,400px 684px,400px 667px,295px 559px,292px 558px,326px 463px,337px 330px,383px 295px,435px 315px,458px 263px,537px 275px,542px 262px,616px 314px,649px 368px,657px 465px,704px 490px;
+  }
+  15% {
+
+      background-size: 7px 7px,4px 4px,5px 5px,7px 7px,6px 6px,9px 9px,5px 5px,6px 6px,11px 11px,11px 11px,3px 3px,6px 6px,7px 7px,8px 8px,4px 4px,5px 5px,5px 5px,5px 5px,7px 7px,6px 6px,4px 4px,5px 5px;
+      background-position: 682px 635px,690px 635px,639px 688px,551px 693px,555px 722px,458px 760px,435px 716px,398px 694px,398px 677px,290px 565px,287px 563px,319px 465px,334px 330px,381px 293px,433px 312px,458px 262px,538px 273px,543px 261px,620px 313px,655px 368px,665px 467px,710px 494px;
+  }
+  17.5% {
+
+      background-size: 6px 6px,3px 3px,4px 4px,6px 6px,5px 5px,8px 8px,4px 4px,5px 5px,9px 9px,9px 9px,2px 2px,5px 5px,6px 6px,6px 6px,3px 3px,4px 4px,4px 4px,4px 4px,6px 6px,5px 5px,3px 3px,4px 4px;
+      background-position: 686px 642px,694px 642px,642px 695px,553px 702px,557px 730px,458px 768px,434px 724px,396px 702px,396px 686px,286px 571px,283px 568px,313px 468px,332px 331px,380px 293px,432px 311px,458px 261px,540px 272px,544px 260px,623px 313px,659px 368px,672px 470px,716px 497px;
+  }
+  20% {
+
+      background-size: 4px 4px,2px 2px,3px 3px,5px 5px,4px 4px,6px 6px,3px 3px,4px 4px,8px 8px,8px 8px,2px 2px,4px 4px,5px 5px,5px 5px,3px 3px,3px 3px,3px 3px,4px 4px,4px 4px,4px 4px,2px 2px,3px 3px;
+      background-position: 690px 648px,697px 647px,645px 701px,555px 710px,558px 738px,459px 775px,434px 732px,395px 710px,395px 694px,283px 576px,279px 573px,308px 470px,330px 332px,378px 294px,431px 310px,458px 262px,541px 273px,545px 260px,626px 313px,663px 369px,679px 472px,720px 501px;
+  }
+  22.5% {
+
+      background-size: 4px 4px,2px 2px,2px 2px,4px 4px,3px 3px,5px 5px,2px 2px,4px 4px,6px 6px,7px 7px,1px 1px,3px 3px,4px 4px,5px 5px,2px 2px,3px 3px,3px 3px,3px 3px,4px 4px,3px 3px,2px 2px,2px 2px;
+      background-position: 693px 654px,700px 653px,647px 707px,557px 717px,559px 744px,459px 781px,433px 738px,394px 717px,393px 701px,280px 581px,276px 578px,304px 473px,328px 333px,377px 295px,430px 309px,458px 262px,542px 273px,546px 261px,628px 314px,667px 370px,684px 475px,724px 505px;
+  }
+  25% {
+
+      background-size: 3px 3px,1px 1px,2px 2px,3px 3px,2px 2px,5px 5px,2px 2px,3px 3px,6px 6px,6px 6px,1px 1px,3px 3px,3px 3px,4px 4px,2px 2px,2px 2px,2px 2px,2px 2px,3px 3px,3px 3px,1px 1px,1px 1px;
+      background-position: 696px 659px,703px 658px,649px 713px,558px 724px,560px 751px,459px 787px,433px 745px,393px 723px,392px 708px,278px 586px,273px 582px,299px 476px,326px 335px,376px 295px,428px 309px,457px 263px,543px 273px,547px 262px,631px 315px,670px 371px,690px 478px,728px 508px;
+  }
+  27.5% {
+
+      background-size: 2px 2px,1px 1px,1px 1px,2px 2px,2px 2px,4px 4px,1px 1px,2px 2px,5px 5px,5px 5px,1px 1px,2px 2px,3px 3px,3px 3px,1px 1px,2px 2px,1px 1px,2px 2px,2px 2px,2px 2px,1px 1px,1px 1px;
+      background-position: 698px 665px,705px 663px,650px 719px,559px 731px,561px 757px,459px 793px,432px 751px,392px 729px,391px 715px,275px 591px,271px 587px,295px 479px,324px 336px,375px 296px,427px 308px,457px 263px,544px 274px,548px 262px,633px 316px,673px 373px,695px 481px,732px 512px;
+  }
+  30% {
+
+      background-size: 2px 2px,1px 1px,1px 1px,2px 2px,1px 1px,3px 3px,1px 1px,2px 2px,4px 4px,4px 4px,0px 0px,2px 2px,2px 2px,3px 3px,1px 1px,1px 1px,1px 1px,2px 2px,2px 2px,2px 2px,1px 1px,1px 1px;
+      background-position: 700px 670px,707px 668px,652px 724px,560px 737px,562px 763px,459px 799px,432px 757px,391px 735px,390px 721px,273px 596px,268px 591px,291px 482px,322px 338px,373px 298px,426px 308px,457px 264px,545px 274px,549px 263px,635px 317px,677px 374px,699px 484px,735px 515px;
+  }
+  32.5% {
+
+      background-size: 1px 1px,0px 0px,1px 1px,1px 1px,1px 1px,3px 3px,1px 1px,1px 1px,3px 3px,3px 3px,0px 0px,1px 1px,2px 2px,2px 2px,1px 1px,1px 1px,1px 1px,1px 1px,1px 1px,1px 1px,0px 0px,0px 0px;
+      background-position: 702px 675px,709px 673px,653px 730px,561px 744px,563px 769px,459px 804px,431px 763px,390px 741px,389px 727px,270px 600px,265px 596px,287px 485px,320px 339px,372px 298px,425px 308px,456px 265px,545px 274px,550px 264px,637px 318px,680px 375px,704px 487px,738px 519px;
+  }
+  35% {
+
+      background-size: 1px 1px,0px 0px,0px 0px,1px 1px,1px 1px,2px 2px,0px 0px,1px 1px,3px 3px,3px 3px,0px 0px,1px 1px,1px 1px,2px 2px,0px 0px,1px 1px,1px 1px,1px 1px,1px 1px,1px 1px,0px 0px,0px 0px;
+      background-position: 704px 680px,711px 678px,655px 735px,562px 750px,564px 774px,459px 809px,431px 769px,389px 747px,389px 734px,268px 605px,263px 600px,284px 489px,318px 341px,371px 299px,423px 307px,456px 265px,546px 275px,550px 264px,640px 319px,683px 377px,708px 490px,741px 523px;
+  }
+  37.5% {
+
+      background-size: 1px 1px,0px 0px,0px 0px,1px 1px,1px 1px,2px 2px,0px 0px,1px 1px,2px 2px,2px 2px,0px 0px,1px 1px,1px 1px,1px 1px,0px 0px,1px 1px,0px 0px,1px 1px,1px 1px,1px 1px,0px 0px,0px 0px;
+      background-position: 706px 685px,713px 683px,656px 740px,563px 756px,564px 780px,459px 815px,430px 774px,389px 753px,388px 739px,266px 610px,261px 604px,280px 492px,316px 342px,369px 300px,422px 307px,456px 266px,547px 275px,551px 265px,642px 320px,686px 378px,712px 493px,744px 526px;
+  }
+  40% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,1px 1px,0px 0px,1px 1px,2px 2px,2px 2px,0px 0px,0px 0px,1px 1px,1px 1px,0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,1px 1px,0px 0px,0px 0px;
+      background-position: 708px 690px,714px 688px,657px 745px,563px 762px,565px 785px,459px 820px,430px 780px,388px 758px,387px 745px,264px 614px,258px 609px,277px 495px,314px 344px,368px 301px,421px 307px,455px 266px,548px 275px,552px 266px,644px 321px,689px 380px,716px 496px,747px 530px;
+  }
+  42.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,0px 0px,2px 2px,2px 2px,0px 0px,0px 0px,1px 1px,1px 1px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 710px 695px,716px 692px,658px 751px,564px 767px,565px 791px,459px 825px,429px 785px,387px 763px,386px 751px,262px 619px,256px 613px,273px 498px,312px 345px,366px 302px,419px 307px,455px 267px,548px 276px,552px 266px,646px 322px,692px 382px,719px 500px,750px 534px;
+  }
+  45% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,0px 0px,1px 1px,1px 1px,0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 711px 699px,718px 697px,660px 756px,565px 773px,566px 796px,459px 830px,429px 790px,386px 769px,385px 756px,260px 624px,254px 617px,270px 502px,310px 347px,365px 303px,418px 306px,454px 267px,549px 276px,553px 267px,648px 323px,695px 383px,723px 503px,753px 537px;
+  }
+  47.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,0px 0px,1px 1px,1px 1px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 713px 704px,719px 702px,661px 761px,565px 779px,566px 801px,459px 835px,428px 796px,385px 774px,384px 762px,258px 628px,252px 622px,267px 505px,308px 349px,363px 304px,416px 306px,454px 268px,550px 276px,554px 267px,650px 324px,697px 385px,726px 506px,755px 541px;
+  }
+  50% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,1px 1px,0px 0px,0px 0px,1px 1px,1px 1px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 714px 709px,721px 706px,662px 765px,566px 784px,567px 806px,459px 840px,428px 801px,385px 779px,384px 767px,256px 633px,250px 626px,264px 509px,306px 350px,361px 305px,415px 306px,453px 268px,551px 276px,555px 268px,652px 325px,700px 387px,730px 510px,758px 545px;
+  }
+  52.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,1px 1px,1px 1px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 716px 714px,722px 711px,663px 770px,566px 789px,567px 811px,459px 845px,428px 806px,384px 784px,383px 772px,254px 637px,248px 630px,261px 512px,303px 352px,360px 306px,414px 306px,453px 269px,551px 277px,555px 268px,654px 326px,703px 388px,733px 513px,760px 549px;
+  }
+  55% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 717px 718px,723px 716px,663px 775px,567px 795px,568px 816px,458px 850px,427px 811px,383px 789px,382px 778px,252px 642px,246px 635px,258px 515px,301px 354px,358px 307px,412px 306px,452px 269px,552px 277px,556px 269px,656px 327px,706px 390px,736px 517px,763px 552px;
+  }
+  57.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 718px 723px,725px 720px,664px 780px,567px 800px,568px 821px,458px 854px,427px 816px,383px 794px,382px 783px,250px 646px,244px 639px,255px 519px,299px 355px,356px 308px,411px 306px,451px 269px,553px 277px,557px 269px,658px 328px,709px 392px,739px 520px,765px 556px;
+  }
+  60% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 720px 727px,726px 725px,665px 785px,568px 805px,568px 826px,458px 859px,426px 821px,382px 799px,381px 788px,249px 650px,243px 643px,252px 523px,297px 357px,355px 309px,409px 306px,451px 270px,553px 277px,557px 270px,660px 329px,711px 394px,742px 524px,767px 560px;
+  }
+  62.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 721px 732px,727px 729px,666px 789px,568px 810px,569px 831px,458px 864px,426px 826px,382px 804px,380px 793px,247px 655px,241px 648px,249px 526px,295px 359px,353px 310px,408px 306px,450px 270px,554px 278px,558px 270px,662px 330px,714px 396px,745px 527px,769px 564px;
+  }
+  65% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 722px 737px,728px 734px,667px 794px,568px 815px,569px 836px,458px 868px,426px 830px,381px 809px,380px 798px,245px 659px,239px 652px,247px 530px,292px 361px,351px 311px,406px 306px,450px 271px,555px 278px,559px 271px,664px 331px,717px 398px,748px 531px,772px 568px;
+  }
+  67.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 723px 741px,729px 738px,667px 799px,569px 820px,569px 841px,458px 873px,426px 835px,381px 814px,379px 803px,244px 664px,238px 656px,244px 533px,290px 362px,349px 312px,404px 306px,449px 271px,556px 278px,560px 271px,667px 332px,719px 400px,750px 535px,774px 572px;
+  }
+  70% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 724px 746px,730px 743px,668px 803px,569px 825px,570px 845px,458px 877px,425px 840px,380px 819px,379px 808px,242px 668px,236px 660px,242px 537px,288px 364px,348px 313px,403px 306px,448px 271px,557px 278px,560px 272px,669px 333px,722px 402px,753px 538px,776px 575px;
+  }
+  72.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 725px 750px,731px 747px,669px 808px,569px 830px,570px 850px,458px 882px,425px 845px,380px 823px,378px 812px,241px 672px,234px 665px,239px 541px,286px 366px,346px 315px,401px 306px,448px 272px,557px 279px,561px 272px,671px 335px,725px 405px,756px 542px,778px 579px;
+  }
+  75% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 726px 754px,732px 751px,670px 812px,570px 835px,570px 855px,458px 886px,425px 849px,379px 828px,378px 817px,239px 677px,233px 669px,237px 544px,284px 368px,344px 316px,400px 306px,447px 272px,558px 279px,562px 273px,673px 336px,727px 407px,758px 546px,780px 583px;
+  }
+  77.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 727px 759px,733px 756px,670px 817px,570px 839px,570px 859px,457px 891px,424px 854px,379px 833px,377px 822px,238px 681px,232px 673px,234px 548px,281px 370px,342px 317px,398px 307px,446px 272px,559px 279px,563px 273px,675px 337px,730px 409px,761px 550px,782px 587px;
+  }
+  80% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 728px 763px,734px 760px,671px 821px,570px 844px,571px 864px,457px 895px,424px 859px,378px 837px,377px 827px,237px 685px,230px 677px,232px 552px,279px 372px,340px 318px,396px 307px,446px 273px,560px 279px,564px 273px,677px 339px,732px 411px,763px 553px,783px 591px;
+  }
+  82.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 729px 768px,735px 765px,671px 826px,571px 849px,571px 868px,457px 900px,424px 863px,378px 842px,376px 831px,235px 690px,229px 682px,230px 556px,277px 374px,339px 319px,395px 307px,445px 273px,561px 280px,564px 274px,679px 340px,735px 414px,765px 557px,785px 595px;
+  }
+  85% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 730px 772px,736px 769px,672px 830px,571px 853px,571px 873px,457px 904px,424px 868px,377px 846px,376px 836px,234px 694px,227px 686px,228px 559px,275px 376px,337px 320px,393px 307px,444px 273px,562px 280px,565px 274px,681px 341px,737px 416px,768px 561px,787px 599px;
+  }
+  87.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 731px 776px,737px 773px,673px 835px,571px 858px,571px 877px,457px 909px,423px 872px,377px 851px,375px 840px,233px 698px,226px 690px,225px 563px,272px 378px,335px 322px,392px 308px,444px 274px,562px 280px,566px 275px,684px 343px,740px 419px,770px 565px,789px 603px;
+  }
+  90% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 732px 781px,738px 777px,673px 839px,571px 863px,571px 882px,457px 913px,423px 877px,376px 855px,375px 845px,232px 702px,225px 694px,223px 567px,270px 380px,333px 323px,390px 308px,443px 274px,563px 280px,567px 275px,686px 344px,742px 421px,772px 569px,790px 607px;
+  }
+  92.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 732px 785px,739px 782px,674px 843px,572px 867px,572px 886px,457px 917px,423px 881px,376px 860px,374px 850px,230px 707px,224px 698px,221px 571px,268px 382px,331px 324px,388px 308px,442px 275px,564px 281px,568px 276px,688px 346px,745px 424px,774px 572px,792px 610px;
+  }
+  95% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 733px 789px,740px 786px,674px 848px,572px 872px,572px 891px,457px 921px,423px 886px,376px 864px,374px 854px,229px 711px,222px 703px,219px 575px,266px 385px,329px 325px,386px 309px,441px 275px,565px 281px,569px 276px,690px 347px,747px 426px,776px 576px,794px 614px;
+  }
+  97.5% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 734px 794px,740px 790px,675px 852px,572px 876px,572px 895px,457px 926px,422px 890px,375px 869px,374px 858px,228px 715px,221px 707px,217px 578px,264px 387px,327px 327px,385px 309px,441px 275px,566px 281px,570px 276px,692px 349px,750px 429px,778px 580px,795px 618px;
+  }
+  100% {
+
+      background-size: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-position: 735px 798px,741px 795px,675px 856px,572px 881px,572px 899px,457px 930px,422px 894px,375px 873px,373px 863px,227px 719px,220px 711px,215px 582px,261px 389px,325px 328px,383px 309px,440px 276px,567px 281px,571px 277px,695px 350px,752px 431px,780px 584px,797px 622px;
+  }} 
+.theButton.particles::after {
+  left: -391.5px;
+  top: -474px;
+  min-width: 1000px;
+  min-height: 1000px;
+}
+.theButton {
+  width: 217px;
+  height: 52px;
+  background: rgba(251.92771084337352, 251.92771084337352, 251.92771084337352, 1);
+  color: rgba(29, 29, 29, 1);
+  border-radius: 7px;
+  box-shadow: 0px 0px 0px 5px rgba(0,0,0,0), 0px 0px 0px 9px rgba(0,0,0,0), inset 0px 0px 0px 0px rgba(0,0,0,0);
+}
