@@ -1,5 +1,6 @@
 let navToken = 0;
 let currentAbort = null;
+
 async function fetchHTML(url, signal) {
   const res = await fetch(url, { signal });
   if (!res.ok) throw new Error(`Failed to load ${url}`);
@@ -15,11 +16,13 @@ async function renderFromHTML(
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
 
+  const newTitle = doc.querySelector("title")?.textContent;
+  document.title = newTitle || "AshPXL.github.io";
+
   const target = document.getElementById("app");
   if (!target) throw new Error("#app container not found");
 
   target.style.transition = `opacity ${transitionDuration}ms`;
-
   target.style.opacity = 0;
   await new Promise(r => setTimeout(r, transitionDuration));
 
@@ -71,6 +74,7 @@ function executeScript(oldScript, token) {
     document.body.appendChild(script);
   });
 }
+
 async function a(page, options = {}) {
   if (location.pathname.endsWith(page)) return;
 
@@ -83,11 +87,9 @@ async function a(page, options = {}) {
 
   try {
     const html = await fetchHTML(page, currentAbort.signal);
-
     if (token !== navToken) return;
 
     await renderFromHTML(html, { ...options, token });
-
     if (token !== navToken) return;
 
     history.pushState(options.state || {}, "", page);
@@ -96,8 +98,10 @@ async function a(page, options = {}) {
       console.error(err);
     }
   }
+
   refreshAds();
 }
+
 function refreshAds() {
   if (window.adsbygoogle) {
     adsbygoogle.push({});
