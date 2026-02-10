@@ -181,7 +181,9 @@ body {
   position: relative;
   left: 18px;
 }
-
+.logo h1{
+  font-size: 28px;
+}
 #page-loader {
   position: fixed;
   inset: 0;
