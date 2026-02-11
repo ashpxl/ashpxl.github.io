@@ -390,6 +390,7 @@ body {
   gap: 25px;
   width: 100%;
   align-items: start;
+  overflow-x: hidden;
 }
 
 /* === GAME FRAME === */

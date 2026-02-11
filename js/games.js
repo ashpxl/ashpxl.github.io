@@ -128,6 +128,7 @@ function loadGames(list, divid) {
       navLinks.forEach(link => {
         link.classList.remove('active');
       });
+      document.title = `${g.title} Unblocked at AshPXL.github.io`;
     };
 
     frag.appendChild(div);
