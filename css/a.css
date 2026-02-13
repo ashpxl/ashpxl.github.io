@@ -8,8 +8,14 @@
   background-position: 50% 50%;
   top: 0;
   left: 0;
-}
 
+}
+a:visited {
+color:#c7c7c7;
+}
+a:link{
+color:#c7c7c7;
+}
 .navigationItem,
 body {
   font-family: Geist, sans-serif;
@@ -74,6 +80,7 @@ body {
   margin-left: 4px;
   /*border: 1px solid #222222;*/
   margin: 6px;
+text-decoration: none;
 }
 
 .navigationItem .navItemSrc {
